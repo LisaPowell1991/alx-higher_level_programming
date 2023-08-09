@@ -6,7 +6,7 @@ def remove_char_at(str, n):
 
     result = ''
     for current_index in range(len(str)):
-            if current_index != n:
-                result += str[current_index]
+        if current_index != n:
+            result += str[current_index]
 
     return result
