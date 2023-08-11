@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+if __name__ == "__main__":
 import sys
 
 def print_args():
@@ -11,11 +12,6 @@ def print_args():
 
     args_plural = "argument" if num_args == 1 else "arguments"
     print("{} {}:".format(num_args, args_plural))
-
     for i in range(1, num_args + 1):
         arg = sys.argv[i]
         print("{}: {}".format(i, arg))
-
-if __name__ == "__main__":
-    print_args()
-
