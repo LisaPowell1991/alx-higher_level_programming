@@ -15,9 +15,9 @@ if __name__== "__main__":
     if operator == '+':
         result = add(a, b)
     elif operator == '-':
-        result == sub(a, b)
+        result = sub(a, b)  # Corrected assignment operator
     elif operator == '*':
-        result == mul(a, b)
+        result = mul(a, b)  # Corrected assignment operator
     elif operator == '/':
         result = div(a, b)
     else:
