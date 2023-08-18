@@ -19,7 +19,7 @@ void print_python_list(PyObject *p)
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %lu\n", PyList_Size(p));
 	printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
-	
+
 	for (index = 0; index < PyList_Size(p); index++)
 	{
 		element = PySequence_GetItem(p, index);
