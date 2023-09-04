@@ -141,4 +141,3 @@ class Rectangle:
         """Print message when an instance of Rectangle is deleted """
 
         print("Bye rectangle...")
-
