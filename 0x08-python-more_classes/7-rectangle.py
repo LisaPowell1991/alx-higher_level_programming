@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
-""" 
+"""
 This module represents a class, Rectangle.
 """
 
+
 class Rectangle:
-    """ 
+    """
     This class defines a rectangle.
 
     Attributes:
@@ -114,7 +115,8 @@ class Rectangle:
 
     def __str__(self):
         """
-        Customize the string representation of the rectangle using print_symbol.
+        Customize the string representation
+        of the rectangle using print_symbol.
 
         Returns:
             str: The string representation of the rectangle.
@@ -133,7 +135,8 @@ class Rectangle:
         Customize the representation of the rectangle for eval().
 
         Returns:
-            str: The string representation of the rectangle that can recreate a new instance.
+            str: The string representation of
+            the rectangle that can recreate a new instance.
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
