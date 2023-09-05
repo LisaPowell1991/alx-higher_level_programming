@@ -1,0 +1,35 @@
+"""
+This module contains tests for the say_my_name function.
+"""
+
+# Import the say_my_name function to test
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+SUCCESS CASES:
+==============
+
+# Test say_my_name with both first and last names.
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+# Test say_my_name with first names.
+say_my_name("Alice")
+'My name is Alice'
+
+# Test say_my_name with first_name left out
+>>> say_my_name("", "Doe")
+My name is  Doe
+
+FAIL CASES:
+===========
+
+# Test say_my_name with string and numbers
+>>> say_my_name(123, "Fred")
+Traceback (most recent call last):
+        ...
+TypeError: first_name must be a string
+
+>>> say_my_name("John", 789)
+Traceback (most recent call last):
+        ...
+TypeError: last_name must be a string
