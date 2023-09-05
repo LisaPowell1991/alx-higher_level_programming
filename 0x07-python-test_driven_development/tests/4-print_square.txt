@@ -1,0 +1,40 @@
+"""
+This module contains tests for the print_square function.
+"""
+
+# Import the print_square function to test
+>>> print_square = __import__('4-print_square').print_square
+
+SUCCESS CASES:
+==============
+
+# Test with different numbers
+
+>>> print_square(3)
+###\n###\n###
+
+>>> print_square(5)
+#####\n#####\n#####\n#####\n#####
+
+>>> print_square(0)
+''
+
+# Testing with Non-Integer Input (Floats)
+>>> print_square(4.7)
+'####\n####\n####\n####'
+
+
+FAIL CASES:
+===========
+
+# Test print_square with a negative size.
+>>>> print_square(-4)
+Traceback (most recent call last):
+        ...
+ValueError: size must be >= 0
+
+# Test print_square with invalid non-integer input.
+>>> print_square(2.5)
+Traceback (most recent call last):
+        ...
+TypeError: size must be an integer
