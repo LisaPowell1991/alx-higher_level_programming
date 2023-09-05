@@ -1,0 +1,84 @@
+"""
+This module contains tests for the add_integer function.
+"""
+
+# Import the add_integer function to test
+>>> add_integer = __import__('0-add_integer').add_integer
+
+SUCCESS CASES:
+==============
+
+All possible integer test
+
+# Test adding 2 positive integers
+>>> add_integer(5, 3)
+8
+
+# Test adding 2 negative integers
+>>> add_integer(5, 3)
+8
+
+# Test adding a negative and a positive integer
+>>> add_integer(-5, 3)
+-2
+
+# Test adding 2 large numbers
+>>> add_integer(1000000, 2000000)
+3000000
+
+# Test adding 0 to an integer
+>>> add_integer(0, 5)
+5
+
+# Test adding 2 zeros
+>>> add_integer(0, 0)
+0
+
+All possible float test
+
+# Test adding a float and an int
+>>> add_integer(2.5, 4)
+6
+
+# Test adding 2 floats
+>>> add_integer(2.9, 0.2)
+2
+
+# Test 2 large floats
+>>> add_integer(1e6, 2.5e6)
+3500000
+
+# Test adding 0 to a float
+>>> add_integer(0.0, 3.7)
+3
+
+FAIL CASES:
+===========
+
+Check for wrong values
+>>> add_integer(4, "Hallo")
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+>>> add_integer("Python", 3)
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+
+# Test adding two non-integer values (should raise TypeError)
+>>> add_integer("hello", None)
+Traceback (most recent call last):
+    	...
+TypeError: a must be an integer
+
+# Test adding two strings (should raise TypeError)
+>>> add_integer("hello", "world")
+Traceback (most recent call last):
+    	...
+TypeError: a must be an integer
