@@ -52,10 +52,20 @@ All possible float test
 >>> add_integer(0.0, 3.7)
 3
 
+# Test with only 1 argument
+>>> add_integer(12)
+110
+
 FAIL CASES:
 ===========
 
-Check for wrong values
+# Test missing two arguments
+>>> add_integer(None)
+Traceback (most recent call last):
+        ...
+TypeError: a must be an integer
+
+# Check for wrong values
 >>> add_integer(4, "Hallo")
 Traceback (most recent call last):
 	...
