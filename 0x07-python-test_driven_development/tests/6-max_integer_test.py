@@ -63,5 +63,18 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([42])
         self.assertEqual(result, 42)
 
+    def test_max_integer_middle(self):
+        """
+        identifies the maximum value when
+        it is in the middle of the list.
+
+        Returns:
+        The maximum value in the middle of the list.
+        """
+
+        result = max_integer([10, 5, 20, 15, 10])
+        self.assertEqual(result, 20)
+
+
 if __name__ == "__main__":
     unittest.main()
