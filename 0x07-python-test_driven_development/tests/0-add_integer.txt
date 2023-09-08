@@ -89,12 +89,12 @@ Traceback (most recent call last):
 TypeError: a must be an integer
 
 # Testing float overflow
->>> add_integer(float('inf'))
+>>> add_integer(float('inf'), 1)
 Traceback (most recent call last):
         ...
 OverflowError: cannot convert float infinity to integer
 
->>> add_integer(float('inf'), float('-inf'))
+>>> add_integer(float('-inf'))
 Traceback (most recent call last):
         ...
 OverflowError: cannot convert float infinity to integer
