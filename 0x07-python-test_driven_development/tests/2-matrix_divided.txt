@@ -22,11 +22,25 @@ SUCCESS CASES:
 FAIL CASES:
 ===========
 
-# Test when the input matrix is not a list of lists
->>> matrix = "not_a_matrix"
->>> print(matrix_divided(matrix, 2))
+# Test with a non-integer and non-float divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> print(matrix_divided(matrix, "2"))
 Traceback (most recent call last):
         ...
+TypeError: div must be a number
+
+# Test with None matrix
+>>> matrix = None
+>>> print(matrix_divided(matrix, 5))
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test with empty matrix
+>>> matrix = []
+>>> print(matrix_divided(matrix, 5))
+Traceback (most recent call last):
+...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 # Test when the matrix contains elements that are not integers or floats
