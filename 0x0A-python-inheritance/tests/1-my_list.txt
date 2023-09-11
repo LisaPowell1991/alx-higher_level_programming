@@ -1,0 +1,73 @@
+"""
+This module contains tests for the print_sorted function.
+"""
+
+# Import the add_integer function to test
+>>> MyList = __import__('1-my_list').MyList
+
+SUCCESS CASES:
+==============
+
+Positive integers
+>>> my_list = MyList()
+>>> my_list += [0]
+>>> my_list.append(4)
+>>> my_list.append(1)
+>>> my_list.append(10)
+>>> my_list.append(3)
+>>> my_list.append(7)
+>>> my_list.print_sorted()
+[0, 1, 3, 4, 7, 10]
+
+Negative and positive integers
+>>> my_list = MyList()
+>>> my_list += [-7]
+>>> my_list.append(6)
+>>> my_list.append(7)
+>>> my_list.append(0)
+>>> my_list.append(-3)
+>>> my_list.append(1)
+>>> my_list += [-1]
+>>> my_list.print_sorted()
+[-7, -3, -1, 0, 1, 6, 7]
+
+Empty list should remain empty
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+List with one integer should return that one integer
+>>> my_list = MyList()
+>>> my_list += [30]
+>>> my_list.print_sorted()
+[30]
+
+List with repeated integers
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list += [1]
+>>> my_list.append(3)
+>>> my_list += [3]
+>>> my_list.append(5)
+>>> my_list += [5]
+>>> my_list.append(7)
+>>> my_list += [7]
+>>> my_list.print_sorted()
+[1, 1, 3, 3, 5, 5, 7, 7]
+
+FAIL CASES:
+===========
+
+Checking for too many arguments:
+>>> my_list = MyList()
+>>> my_list.print_sorted([1, 2, 3])
+Traceback (most recent call last):
+	...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+Print_sorted method with 2 passed arguments
+>>> my_list = MyList()
+>>> my_list.print_sorted([1, 2], [5, 4])
+Traceback (most recent call last):
+	...
+TypeError: print_sorted() takes 1 positional argument but 3 were given

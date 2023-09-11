@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+""" This module contains a functions, lookup """
 
 def lookup(obj):
     """
@@ -7,7 +8,7 @@ def lookup(obj):
     available attributes and methods of an object
 
     Args:
-    @obj: The object
+    @obj: The object that needs to be inspected
 
     Return:
     A list object
