@@ -1,0 +1,35 @@
+
+The "7-base_geometry" module
+-----------------------------
+
+# Import the add_integer function to test
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+SUCCESS CASES:
+==============
+
+Positive integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("test", 5)
+
+FAIL CASES:
+===========
+
+Test with a string
+>>> bg.integer_validator("test", "string")
+Traceback (most recent call last):
+	...
+TypeError: test must be an integer
+
+Negative integer
+>>> bg.integer_validator("test", -5)
+Traceback (most recent call last):
+	...
+ValueError: test must be greater than 0
+
+No arguements provided for area()
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
