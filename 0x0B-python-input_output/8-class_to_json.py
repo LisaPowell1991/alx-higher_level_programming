@@ -2,8 +2,6 @@
 
 """ A module containing a function, class_to_json """
 
-import json
-
 
 def class_to_json(obj):
     """
@@ -21,6 +19,6 @@ def class_to_json(obj):
 
     value = {}
 
-    if hasattr(obj, '__dict__'):
+    if hasattr(obj, "__dict__"):
         value = obj.__dict__.copy()
     return value
