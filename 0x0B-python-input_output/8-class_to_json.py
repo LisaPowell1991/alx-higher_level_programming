@@ -19,14 +19,8 @@ def class_to_json(obj):
     for JSON serialization of an object
     """
 
-    if isinstance(obj, bool) or isinstance(obj, int) or isinstance(obj, str):
-        return obj
-    elif isinstance(obj, list):
-        return [class_to_json(item) for item in obj]
-    elif isinstance(obj, dict):
-        return {key: class_to_json(value) for key, value in obj.items()}
-    elif hasattr(obj, '__dict__'):
-        return {key: class_to_json(value) for key,
-                value in obj.__dict__.items()}
-    else:
-        return None
+    value = {}
+
+    if hasattr(obj, '__dict__'):
+        value = obj.__dict__.copy()
+    return value
