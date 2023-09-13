@@ -33,6 +33,7 @@ Negative and positive integers
 
 Empty list should remain empty
 >>> my_list = MyList()
+>>> my_list += []
 >>> my_list.print_sorted()
 []
 
