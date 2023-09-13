@@ -32,4 +32,4 @@ def pascal_triangle(n):
                 row.append(value)
         triangle.append(row)
 
-    return triangle               
+    return triangle
