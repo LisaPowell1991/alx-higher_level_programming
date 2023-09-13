@@ -15,7 +15,7 @@ Positive integer
 FAIL CASES:
 ===========
 
-Test with a string
+Test with a non-integer
 >>> bg.integer_validator("test", "string")
 Traceback (most recent call last):
 	...
@@ -26,6 +26,30 @@ Negative integer
 Traceback (most recent call last):
 	...
 ValueError: test must be greater than 0
+
+Test with boolean value
+>>> bg.integer_validator("test", True)
+Traceback (most recent call last):
+        ...
+TypeError: test must be an integer
+
+Test with zero value
+>>> bg.integer_validator("test", 0)
+Traceback (most recent call last):
+        ...
+ValueError: test must be greater than 0
+
+Test with 1 argument passed to integer_validator
+>>> bg.integer_validator("test")
+Traceback (most recent call last):
+        ...
+TypeError: integer_validator() missing 1 required positional argument" 'value'
+
+Test with 1 argument passed to integer_validator
+>>> bg.integer_validator("test")
+Traceback (most recent call last):
+        ...
+TypeError: integer_validator() missing 2 required positional argument: 'name' and 'value'
 
 No arguements provided for area()
 >>> bg = BaseGeometry()
