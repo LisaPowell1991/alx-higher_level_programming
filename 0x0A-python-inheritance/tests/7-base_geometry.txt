@@ -27,6 +27,24 @@ Traceback (most recent call last):
 	...
 ValueError: test must be greater than 0
 
+Zero value integer
+>>> bg.integer_validator("test", 0)
+Traceback (most recent call last):
+        ...
+ValueError: test must be greater than 0
+
+Test with a non-integer value as a tuple
+>>> bg.integer_validator("age", ("4",))
+Traceback (most recent call last):
+	...
+TypeError: age must be an integer
+
+Only 1 arguments passed to integer_validator
+>>> bg.integer_validator("Test")
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
 No arguments passed to integer_validator
 >>> bg.integer_validator()
 Traceback (most recent call last):
