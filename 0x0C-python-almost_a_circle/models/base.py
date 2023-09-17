@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" This module contains a clas Base """
+""" This module contains a class Base """
 
 
 class Base:
