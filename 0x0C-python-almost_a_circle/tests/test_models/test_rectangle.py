@@ -174,6 +174,15 @@ class TestRectangleDisplay(unittest.TestCase):
         expected_output = "###\n###\n###\n###\n"
         self.assertEqual(sys.stdout.getvalue(), expected_output)
 
+    def test_display_with_offset(self):
+        """
+        Test displaying a rectangle with x and y offsets.
+        """
+        rectangle = Rectangle(2, 2, 1, 1)
+        rectangle.display()
+        expected_output = "\n ##\n ##\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
     def test_str_reprensentation(self):
         """
         Test that the __str__() method
