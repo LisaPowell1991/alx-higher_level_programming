@@ -3,6 +3,8 @@
 """ This module defines unittest cases for Rectangle """
 
 import unittest
+import io
+import sys
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -142,6 +144,35 @@ class TestRectangle_area(unittest.TestCase):
         with self.assertRaises(TypeError):
             rectangle = Rectangle(10.5, 10)
             area = rectangle.area()
+
+class TestRectangleDisplay(unittest.TestCase):
+    """
+    Test cases for the Rectangle class display method
+    """
+
+    def setUp(self):
+        """ Redirect stdout to capture printed output. """
+        self.original_stdout = sys.stdout
+        sys.stdout = io.StringIO()
+
+    def tearDown(self):
+        """ Restore the original stdout. """
+        sys.stdout = self.original_stdout
+        
+
+    def test_display_default(self):
+        """ Test displaying a rectangle with default values. """
+        rectangle = Rectangle(2, 2)
+        rectangle.display()
+        expected_output = "##\n##\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+    def test_display_custom_size(self):
+        """ Test displaying a rectangle with custom width and height. """
+        rectangle = Rectangle(3, 4)
+        rectangle.display()
+        expected_output = "###\n###\n###\n###\n"
+        self.assertEqual(sys.stdout.getvalue(), expected_output)
 
 
 if __name__ == "__main__":
