@@ -147,7 +147,7 @@ class TestRectangle_area(unittest.TestCase):
 
 class TestRectangleDisplay(unittest.TestCase):
     """
-    Test cases for the Rectangle class display method
+    Test cases for the Rectangle class display and __str__ method
     """
 
     def setUp(self):
@@ -173,6 +173,14 @@ class TestRectangleDisplay(unittest.TestCase):
         rectangle.display()
         expected_output = "###\n###\n###\n###\n"
         self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+    def test_str_reprensentation(self):
+        """
+        Test that the __str__() method
+        returns the expected string format.
+        """
+        rectangle = Rectangle(7, 14, 2, 3, 1)
+        self.assertEqual(str(rectangle), "[Rectangle] (1) 2/3 - 7/14")
 
 
 if __name__ == "__main__":
