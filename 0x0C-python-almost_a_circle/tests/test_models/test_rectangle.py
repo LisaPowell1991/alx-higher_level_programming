@@ -87,6 +87,16 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             rectangle = Rectangle(14, 8, 20, "invalid", 1)
 
+    def test_default_id_assigned(self):
+        """
+        Test that a Rectangle gets assigned
+        a unique ID if none is provided.
+        """
+
+        rectangle1 = Rectangle(10, 20)
+        rectangle2 = Rectangle(5, 8)
+        self.assertNotEqual(rectangle1.id, rectangle2.id)
+
 
 if __name__ == "__main__":
     unittest.main()
