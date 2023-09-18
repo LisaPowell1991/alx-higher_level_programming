@@ -98,5 +98,51 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(rectangle1.id, rectangle2.id)
 
 
+class TestRectangle_area(unittest.TestCase):
+    """Unittests for testing the area method of the Rectangle class."""
+
+    def test_area_calculation(self):
+        """
+        Test that the area() method works correctly
+        """
+        rectangle = Rectangle(5, 10)
+        self.assertEqual(rectangle.area(), 50)
+
+    def test_area_with_zero_width(self):
+        """
+        Test that area method correctly handles
+        a rectangle with 0 width
+        """
+        with self.assertRaises(ValueError):
+            # Creating a Rectangle instance with zero width
+            rectangle = Rectangle(0, 10)
+
+    def test_area_with_negative_width(self):
+        """
+        Test that area method correctly handles
+        a rectangle with negative width
+        """
+        with self.assertRaises(ValueError):
+            rectangle = Rectangle(-5, 10)
+            area = rectangle.area()
+
+    def test_area_with_large_values(self):
+        """
+        Test that the area() method handles
+        very large width and height values.
+        """
+        rectangle = Rectangle(10**9, 10**9)
+        self.assertEqual(rectangle.area(), 10**18)
+
+    def test_area_with_non_integer_width(self):
+        """
+        Test that the area() method correctly
+        handles a non-integer width.
+        """
+        with self.assertRaises(TypeError):
+            rectangle = Rectangle(10.5, 10)
+            area = rectangle.area()
+
+
 if __name__ == "__main__":
     unittest.main()
