@@ -63,7 +63,7 @@ class TestRectangle(unittest.TestCase):
         (should raise TypeError).
         """
         with self.assertRaises(TypeError):
-            rectangle = Rectangle("invalid", 20, 3, 7, 9)
+            rectangle = Rectangle("invalid_width", 9)
 
     def test_rectangle_with_non_integer_height(self):
         """
