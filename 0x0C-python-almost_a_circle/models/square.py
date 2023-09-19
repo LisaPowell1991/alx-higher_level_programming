@@ -49,6 +49,11 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """
         Assign arguments or key-value pairs to attributes.
+
+        Args:
+        *args: List of arguments (no-keyworded)
+        in the order id, size, x, y.
+        **kwargs: Dictionary of keyworded arguments.
         """
         if args:
             if len(args) >= 1:
