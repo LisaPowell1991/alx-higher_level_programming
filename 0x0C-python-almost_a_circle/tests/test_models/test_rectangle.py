@@ -145,6 +145,7 @@ class TestRectangle_area(unittest.TestCase):
             rectangle = Rectangle(10.5, 10)
             area = rectangle.area()
 
+
 class TestRectangleDisplay(unittest.TestCase):
     """
     Test cases for the Rectangle class display, __str__ and update method
@@ -158,7 +159,6 @@ class TestRectangleDisplay(unittest.TestCase):
     def tearDown(self):
         """ Restore the original stdout. """
         sys.stdout = self.original_stdout
-        
 
     def test_display_default(self):
         """ Test displaying a rectangle with default values. """
@@ -198,6 +198,12 @@ class TestRectangleDisplay(unittest.TestCase):
         """
 
         rectangle = Rectangle(5, 15, 30, 4, 2)
+
+        rectangle.update(10)  # id
+        rectangle.update(10, 20)  # id and width
+        rectangle.update(10, 20, 30)  # id, width, and height
+        rectangle.update(10, 20, 30, 40)  # id, width, height, and x
+        rectangle.update(10, 20, 30, 40, 50)  # id, width, height, x, y
 
         self.assertEqual(rectangle.id, 5)
         self.assertEqual(rectangle.width, 15)

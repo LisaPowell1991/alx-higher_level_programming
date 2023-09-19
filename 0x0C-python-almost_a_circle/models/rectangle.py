@@ -104,7 +104,7 @@ class Rectangle(Base):
                                                        self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Assigns an argument to each attribute in order:
         id, width, height, x, y
@@ -112,6 +112,7 @@ class Rectangle(Base):
         Args:
         *args: A tuple of arguments containing values
         for id, width, height, x, and y.
+        *kwargs: a double pointer to a dictionary: key/value
         """
         if len(args) >= 1:
             self.id = args[0]
@@ -123,3 +124,6 @@ class Rectangle(Base):
             self.x = args[3]
         if len(args) >= 5:
             self.y = args[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
