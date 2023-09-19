@@ -147,7 +147,7 @@ class TestRectangle_area(unittest.TestCase):
 
 class TestRectangleDisplay(unittest.TestCase):
     """
-    Test cases for the Rectangle class display and __str__ method
+    Test cases for the Rectangle class display, __str__ and update method
     """
 
     def setUp(self):
@@ -190,6 +190,20 @@ class TestRectangleDisplay(unittest.TestCase):
         """
         rectangle = Rectangle(7, 14, 2, 3, 1)
         self.assertEqual(str(rectangle), "[Rectangle] (1) 2/3 - 7/14")
+
+    def test_with_update_method(self):
+        """
+        Test that the update() method
+        returns the expected update format.
+        """
+
+        rectangle = Rectangle(5, 15, 30, 4, 2)
+
+        self.assertEqual(rectangle.id, 5)
+        self.assertEqual(rectangle.width, 15)
+        self.assertEqual(rectangle.height, 30)
+        self.assertEqual(rectangle.x, 4)
+        self.assertEqual(rectangle.y, 2)
 
 
 if __name__ == "__main__":
