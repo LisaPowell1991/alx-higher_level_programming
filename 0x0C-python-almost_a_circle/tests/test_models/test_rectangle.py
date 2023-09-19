@@ -3,7 +3,7 @@
 """ This module defines unittest cases for Rectangle """
 
 import unittest
-import io
+from io import StringIO
 import sys
 from models.base import Base
 from models.rectangle import Rectangle
@@ -151,12 +151,12 @@ class TestRectangleDisplay(unittest.TestCase):
     Test cases for the Rectangle class display, __str__ and update method
     """
 
-    def setUp(self):
+    def test_setUp(self):
         """ Redirect stdout to capture printed output. """
         self.original_stdout = sys.stdout
         sys.stdout = io.StringIO()
 
-    def tearDown(self):
+    def test_tearDown(self):
         """ Restore the original stdout. """
         sys.stdout = self.original_stdout
 

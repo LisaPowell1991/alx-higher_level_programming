@@ -5,7 +5,7 @@
 import json
 
 
-class Base:
+class Base():
     """
     Base class for managing ID attributes in other classes.
 

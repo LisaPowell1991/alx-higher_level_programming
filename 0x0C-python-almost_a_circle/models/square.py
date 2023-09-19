@@ -20,7 +20,6 @@ class Square(Rectangle):
         """
 
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     def __str__(self):
         """ Custom string representation of the Square. """
@@ -57,8 +56,8 @@ class Square(Rectangle):
         **kwargs: Dictionary of keyworded arguments.
         """
         if len(args) == 0:
-            for key, val in kwargs.items():
-                self.__setattr__(key, val)
+            for key, value in kwargs.items():
+                self.__setattr__(key, value)
             return
         elif args:
             if len(args) >= 1:
