@@ -52,6 +52,26 @@ class Base:
         else:
             return json.dumps(list_dictionaries)
 
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        returns the list of the JSON string
+        representation json_string.
+
+        Args:
+        json_string (string): A string representing
+        a list of dictionaries
+
+        Returns:
+        Return the list represented by json_string;
+        If json_string is None or empty, return an empty list.
+        """
+
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """
