@@ -105,12 +105,12 @@ class Rectangle(Base):
                                                        self.width, self.height)
 
     def update(self, *args):
-        """ 
+        """
         Assigns an argument to each attribute in order:
         id, width, height, x, y
 
         Args:
-        *args: A tuple of arguments containing values 
+        *args: A tuple of arguments containing values
         for id, width, height, x, and y.
         """
         if len(args) >= 1:
@@ -122,4 +122,4 @@ class Rectangle(Base):
         if len(args) >= 4:
             self.x = args[3]
         if len(args) >= 5:
-            self.y = args[4]     
+            self.y = args[4]
