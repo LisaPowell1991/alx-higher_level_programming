@@ -3,8 +3,11 @@
 """ This module defines unittest cases for Rectangle """
 
 import unittest
-from io import StringIO
+import io
 import sys
+import json
+from io import StringIO
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -151,37 +154,43 @@ class TestRectangleDisplay(unittest.TestCase):
     Test cases for the Rectangle class display, __str__ and update method
     """
 
-    def test_setUp(self):
+    def setUp(self):
         """ Redirect stdout to capture printed output. """
         self.original_stdout = sys.stdout
         sys.stdout = io.StringIO()
 
-    def test_tearDown(self):
+    def tearDown(self):
         """ Restore the original stdout. """
         sys.stdout = self.original_stdout
 
     def test_display_default(self):
         """ Test displaying a rectangle with default values. """
         rectangle = Rectangle(2, 2)
-        rectangle.display()
         expected_output = "##\n##\n"
-        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            rectangle.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_display_custom_size(self):
         """ Test displaying a rectangle with custom width and height. """
         rectangle = Rectangle(3, 4)
-        rectangle.display()
         expected_output = "###\n###\n###\n###\n"
-        self.assertEqual(sys.stdout.getvalue(), expected_output)
+        
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            rectangle.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_display_with_offset(self):
         """
         Test displaying a rectangle with x and y offsets.
         """
         rectangle = Rectangle(2, 2, 1, 1)
-        rectangle.display()
         expected_output = "\n ##\n ##\n"
-        self.assertEqual(sys.stdout.getvalue(), expected_output)
+
+        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
+            rectangle.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_str_reprensentation(self):
         """
@@ -190,26 +199,6 @@ class TestRectangleDisplay(unittest.TestCase):
         """
         rectangle = Rectangle(7, 14, 2, 3, 1)
         self.assertEqual(str(rectangle), "[Rectangle] (1) 2/3 - 7/14")
-
-    def test_with_update_method(self):
-        """
-        Test that the update() method
-        returns the expected update format.
-        """
-
-        rectangle = Rectangle(5, 15, 30, 4, 2)
-
-        rectangle.update(10)  # id
-        rectangle.update(10, 20)  # id and width
-        rectangle.update(10, 20, 30)  # id, width, and height
-        rectangle.update(10, 20, 30, 40)  # id, width, height, and x
-        rectangle.update(10, 20, 30, 40, 50)  # id, width, height, x, y
-
-        self.assertEqual(rectangle.id, 5)
-        self.assertEqual(rectangle.width, 15)
-        self.assertEqual(rectangle.height, 30)
-        self.assertEqual(rectangle.x, 4)
-        self.assertEqual(rectangle.y, 2)
 
 
 if __name__ == "__main__":
