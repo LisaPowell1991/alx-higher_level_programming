@@ -2,6 +2,8 @@
 
 """ This module contains a class Base """
 
+import json
+
 
 class Base:
     """
@@ -31,3 +33,21 @@ class Base:
             Base.__nb_objects += 1
 
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Serialize a list of dictionary into a JSON string
+
+        Args:
+        list_dictionaries (list of dict):
+        The list of dictionaries to be serialized.
+
+        Returns:
+        str: The JSON string containing the list of dictionaries;
+        If the input list is None or empty, returns "[]".
+        """
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
