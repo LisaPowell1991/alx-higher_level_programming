@@ -16,7 +16,12 @@ class Rectangle(Base):
         height (int): Height of rectangle
         x (int, optional): The x-coordinate of the new Rectangle.
         y (int, optional): The y-coordinate of the new Rectangle.
-        id (int, optional): Id of the new Rectangle
+        id (int, optional): Id of the new Rectangle.
+
+        Raises:
+        TypeError: If width, height, x, or y is not an integer.
+        ValueError: If width or height is less than or equal to 0,
+        or if x or y is less than 0.
 
         """
 
@@ -35,9 +40,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         if type(value) != int:
-            raise TypeError("Width must be an integer")
+            raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("Width must be > 0")
+            raise ValueError("width must be > 0")
 
         self.__width = value
 
@@ -49,9 +54,9 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         if type(value) != int:
-            raise TypeError("Height must be an integer")
+            raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("Height must be > 0")
+            raise ValueError("height must be > 0")
 
         self.__height = value
 
