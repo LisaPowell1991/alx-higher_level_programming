@@ -37,6 +37,7 @@ class Square(Rectangle):
 
         Args:
         value (int): The new size of the square.
+
         """
         if type(value) != int:
             raise TypeError("width must be an integer")
