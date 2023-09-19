@@ -3,6 +3,7 @@
 """ This module defines unittest cases for Base """
 
 import unittest
+import json
 from models.base import Base
 
 
@@ -30,6 +31,11 @@ class TestBase(unittest.TestCase):
         """ Test creating an instance without providing an ID """
         instance1 = Base()
         self.assertEqual(instance1.id, 1)
+
+    def test_to_json_string_with_none(self):
+        """ Test if to_json_string(None) returns "[]". """
+        result = Base.to_json_string(None)
+        self.assertEqual(result, "[]")
 
 
 if __name__ == "__main__":
