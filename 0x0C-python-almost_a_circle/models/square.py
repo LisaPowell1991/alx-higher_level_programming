@@ -23,7 +23,6 @@ class Square(Rectangle):
 
     def __str__(self):
         """ Custom string representation of the Square. """
-
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
@@ -35,6 +34,31 @@ class Square(Rectangle):
     def size(self, value):
         """
         Set the size of the square (both width and height).
+
+        Args:
+        value (int): The new size of the square.
         """
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Assign arguments or key-value pairs to attributes.
+        """
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.size = args[1]
+            if len(args) >= 3:
+                self.x = args[2]
+            if len(args) >= 4:
+                self.y = args[3]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
