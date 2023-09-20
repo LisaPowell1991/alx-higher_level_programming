@@ -213,5 +213,43 @@ class TestRectangleToDictionary(unittest.TestCase):
         self.assertEqual(r.to_dictionary(), expected_dict)
 
 
+class TestRectangleUpdate(unittest.TestCase):
+    """  Test cases for the Rectangle class """
+
+    def test_update_with_args(self):
+        """
+        Test updating attributes of Rectangle using positional arguments.
+        """
+        r = Rectangle(4, 3)
+        r.update(1, 2, 5, 6, 7)
+        self.assertEqual(r.id, 1)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 5)
+        self.assertEqual(r.x, 6)
+        self.assertEqual(r.y, 7)
+
+    def test_update_with_kwargs(self):
+        """
+        Test updating attributes of Rectangle using keyword arguments.
+        """
+        r = Rectangle(4, 3)
+        r.update(id=1, width=2, height=5, x=6, y=7)
+        self.assertEqual(r.id, 1)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 5)
+        self.assertEqual(r.x, 6)
+        self.assertEqual(r.y, 7)
+
+    def test_update_with_mixed_args_and_kwargs(self):
+        """
+        Test updating attributes of Rectangle using a mix of args and kwargs.
+        """
+        r = Rectangle(4, 3)
+        r.update(1, width=2, height=5)
+        self.assertEqual(r.id, 1)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 5)
+
+
 if __name__ == "__main__":
     unittest.main()
