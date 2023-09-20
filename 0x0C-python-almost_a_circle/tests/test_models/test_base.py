@@ -42,5 +42,17 @@ class TestBase(unittest.TestCase):
         result = Base.to_json_string([])
         self.assertEqual(result, "[]")
 
+    def test_to_json_string_exists(self):
+        """ Test if the to_json_string function exists """
+        self.assertTrue(hasattr(Base, 'to_json_string'))
+
+    def test_to_json_string_output(self):
+        """ Test the output of the to_json_string function """
+        input_data = [{'id': 12}]
+        expected_output = json.dumps(input_data)
+
+        self.assertEqual(Base.to_json_string(input_data), expected_output)
+
+
 if __name__ == "__main__":
     unittest.main()
