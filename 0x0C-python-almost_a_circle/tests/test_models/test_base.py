@@ -48,10 +48,31 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string_output(self):
         """ Test the output of the to_json_string function """
-        input_data = [{'id': 12}]
-        expected_output = json.dumps(input_data)
+        input_list = [{"key1": "value1"}, {"key2": "value2"}]
+        result = Base.to_json_string(input_list)
+        expected = json.dumps(input_list)
+        self.assertEqual(result, expected)
 
-        self.assertEqual(Base.to_json_string(input_data), expected_output)
+    def test_to_json_string_single_dict(self):
+        """
+        Tests if the function correctly serializes
+        a list containing a single dictionary.
+        """
+        input_dict = {"key": "value"}
+        result = Base.to_json_string([input_dict])
+        expected = json.dumps([input_dict])
+        self.assertEqual(result, expected)
+
+    def test_to_json_string_nested_dicts(self):
+        """
+        Tests if the function correctly serializes a list
+        of nested dictionaries.
+        """
+        input_list = [{"key1": {"nested_key": "value1"}},
+                      {"key2": {"nested_key": "value2"}}]
+        result = Base.to_json_string(input_list)
+        expected = json.dumps(input_list)
+        self.assertEqual(result, expected)
 
 
 if __name__ == "__main__":
