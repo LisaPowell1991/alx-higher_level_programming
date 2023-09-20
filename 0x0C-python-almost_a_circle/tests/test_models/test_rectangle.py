@@ -214,7 +214,7 @@ class TestRectangleToDictionary(unittest.TestCase):
 
 
 class TestRectangleUpdate(unittest.TestCase):
-    """  Test cases for the Rectangle class """
+    """  Test cases for the RectangleUpdate class """
 
     def test_update_with_args(self):
         """
@@ -249,6 +249,44 @@ class TestRectangleUpdate(unittest.TestCase):
         self.assertEqual(r.id, 1)
         self.assertEqual(r.width, 2)
         self.assertEqual(r.height, 5)
+
+
+class TestRectangleCreate(unittest.TestCase):
+    """ Test cases for the Rectangle class using create """
+
+    def test_create_with_id_and_width(self):
+        """ Tests with id and width """
+        data = {'id': 89, 'width': 1}
+        r = Rectangle.create(**data)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+
+    def test_create_with_id_width_and_height(self):
+        """ Tests with id, height and width """
+        data = {'id': 89, 'width': 1, 'height': 2}
+        r = Rectangle.create(**data)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+
+    def test_create_with_id_width_height_and_x(self):
+        """ Tests with id, height, width and x """
+        data = {'id': 89, 'width': 1, 'height': 2, 'x': 3}
+        r = Rectangle.create(**data)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 3)
+
+    def test_create_with_id_width_height_x_and_y(self):
+        """ Tests with id, height, width, x and y """
+        data = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        r = Rectangle.create(**data)
+        self.assertEqual(r.id, 89)
+        self.assertEqual(r.width, 1)
+        self.assertEqual(r.height, 2)
+        self.assertEqual(r.x, 3)
+        self.assertEqual(r.y, 4)
 
 
 if __name__ == "__main__":
