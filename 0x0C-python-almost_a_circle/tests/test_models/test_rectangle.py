@@ -15,6 +15,13 @@ from models.rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
     """ Test cases for the Rectangle class """
 
+    def test_rectangle_exists(self):
+        """
+        Test if a Rectangle instance with dimensions (1, 2) exists.
+        """
+        rect = Rectangle(1, 2)
+        self.assertIsInstance(rect, Rectangle)
+
     def test_rectangle_with_valid_values(self):
         """
         Test creating a Rectangle with valid
