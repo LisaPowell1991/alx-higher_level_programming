@@ -195,5 +195,23 @@ class TestRectangleDisplay(unittest.TestCase):
         self.assertEqual(str(rectangle), "[Rectangle] (1) 2/3 - 7/14")
 
 
+class TestRectangleToDictionary(unittest.TestCase):
+
+    def test_to_dictionary_exists(self):
+        """
+        Test if to_dictionary method exists in Rectangle class
+        and returns the expected dictionary representation.
+        """
+        r = Rectangle(4, 3, 2, 1, 42)
+        expected_dict = {
+            "id": 42,
+            "width": 4,
+            "height": 3,
+            "x": 2,
+            "y": 1
+        }
+        self.assertEqual(r.to_dictionary(), expected_dict)
+
+
 if __name__ == "__main__":
     unittest.main()
