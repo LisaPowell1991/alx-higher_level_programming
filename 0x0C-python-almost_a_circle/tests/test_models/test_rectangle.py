@@ -162,42 +162,29 @@ class TestRectangleDisplay(unittest.TestCase):
     """
 
     def setUp(self):
-        """ Redirect stdout to capture printed output. """
-        self.original_stdout = sys.stdout
-        sys.stdout = io.StringIO()
+        self.output = StringIO()
+        sys.stdout = self.output
 
     def tearDown(self):
-        """ Restore the original stdout. """
-        sys.stdout = self.original_stdout
+        sys.stdout = sys.__stdout__
 
-    def test_display_default(self):
-        """ Test displaying a rectangle with default values. """
-        rectangle = Rectangle(2, 2)
-        expected_output = "##\n##\n"
+    def test_display_without_x_y(self):
+        r = Rectangle(4, 3)
+        r.display()
+        expected_output = "####\n####\n####\n"
+        self.assertEqual(self.output.getvalue(), expected_output)
 
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            rectangle.display()
-            self.assertEqual(mock_stdout.getvalue(), expected_output)
+    def test_display_without_y(self):
+        r = Rectangle(4, 3, 2)
+        r.display()
+        expected_output = "  ####\n  ####\n  ####\n"
+        self.assertEqual(self.output.getvalue(), expected_output)
 
-    def test_display_custom_size(self):
-        """ Test displaying a rectangle with custom width and height. """
-        rectangle = Rectangle(3, 4)
-        expected_output = "###\n###\n###\n###\n"
-        
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            rectangle.display()
-            self.assertEqual(mock_stdout.getvalue(), expected_output)
-
-    def test_display_with_offset(self):
-        """
-        Test displaying a rectangle with x and y offsets.
-        """
-        rectangle = Rectangle(2, 2, 1, 1)
-        expected_output = "\n ##\n ##\n"
-
-        with patch('sys.stdout', new_callable=StringIO) as mock_stdout:
-            rectangle.display()
-            self.assertEqual(mock_stdout.getvalue(), expected_output)
+    def test_display_with_x_and_y(self):
+        r = Rectangle(4, 3, 2, 1)
+        r.display()
+        expected_output = "\n  ####\n  ####\n  ####\n"
+        self.assertEqual(self.output.getvalue(), expected_output)
 
     def test_str_reprensentation(self):
         """

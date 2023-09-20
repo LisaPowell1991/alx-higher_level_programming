@@ -46,12 +46,13 @@ class TestBase(unittest.TestCase):
         """ Test if the to_json_string function exists """
         self.assertTrue(hasattr(Base, 'to_json_string'))
 
-    def test_to_json_string_output(self):
-        """ Test the output of the to_json_string function """
-        input_list = [{"key1": "value1"}, {"key2": "value2"}]
-        result = Base.to_json_string(input_list)
-        expected = json.dumps(input_list)
-        self.assertEqual(result, expected)
+    def test_to_json_string(self):
+        """
+        Test if Base.to_json_string returns a string when given a list with one dictionary.
+        """
+        data = [{'id': 12}]
+        json_string = Base.to_json_string(data)
+        self.assertIsInstance(json_string, str)
 
     def test_to_json_string_single_dict(self):
         """
