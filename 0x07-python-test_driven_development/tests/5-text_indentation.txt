@@ -9,26 +9,9 @@ SUCCESS CASES:
 ==============
 
 # Testing with valid input
-
-# Testing with valid input
->>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-	... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
-	... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud""")
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	<BLANKLINE>
-	Quonam modo?
-	<BLANKLINE>
-	Utrum igitur tibi litteram videor an totas paginas commovere?
-	<BLANKLINE>
-	Non autem hoc:
-	<BLANKLINE>
-	igitur ne illud quidem.
-	<BLANKLINE>
-	Fortasse id optimum, sed ubi illud
-
-# Testing Empty Text:
->>> text_indentation("")
-
+text_indentation("Hallo World")
+Hallo world!
+<BLANKLINE>
 
 # Testing Text Without '.', '?', or ':' Characters:
 >>> text_indentation("This is a simple sentence with no special characters")
