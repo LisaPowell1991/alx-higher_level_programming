@@ -15,7 +15,7 @@ if __name__ == "__main__":
     db = sys.argv[3]
 
     engine = create_engine(
-            f'mysql://{username}:{password}@localhost:3306/{db}', echo=True)
+            f'mysql://{username}:{password}@localhost:3306/{db}')
 
     Base.metadata.bind = engine
 
