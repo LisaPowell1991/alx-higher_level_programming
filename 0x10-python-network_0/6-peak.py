@@ -5,6 +5,7 @@ module containing this function:
 def find_peak(list_of_integers)
 """
 
+
 def find_peak(list_of_integers):
     """
     Find the peak in alist of unsorted integers.
