@@ -21,6 +21,6 @@ request(apiUrl, (error, response, body) => {
         }
       }
     });
-    console.log(JSON.stringify(userCompletedTasks, null, 2));
+    console.log(JSON.stringify(userCompletedTasks, null, 2).replace(/"(\d+)":/g, "'$1':"));
   }
 });
