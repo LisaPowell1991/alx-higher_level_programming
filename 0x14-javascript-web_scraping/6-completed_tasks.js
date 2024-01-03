@@ -12,13 +12,9 @@ request(apiUrl, (error, response, body) => {
 
     const userCompletedTasks = {};
 
-    tasksInfo.forEach(task => {
+    tasksInfo.forEach((task) => {
       if (task.completed) {
-        if (!userCompletedTasks[task.userId]) {
-          userCompletedTasks[task.userId] = 1;
-        } else {
-          userCompletedTasks[task.userId]++;
-        }
+        userCompletedTasks[task.userId] = (userCompletedTasks[task.userId] || 0) + 1;
       }
     });
     console.log(JSON.stringify(userCompletedTasks, null, 2).replace(/"(\d+)":/g, "'$1':"));
