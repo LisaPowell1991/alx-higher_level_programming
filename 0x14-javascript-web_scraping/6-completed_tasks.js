@@ -17,6 +17,6 @@ request(apiUrl, (error, response, body) => {
         userCompletedTasks[task.userId] = (userCompletedTasks[task.userId] || 0) + 1;
       }
     });
-    console.log('{', Object.entries(userCompletedTasks).map(([key, value]) => ` '${key}': ${value}`).join(',\n'), ' }');
+    console.log(JSON.stringify(userCompletedTasks, null, 2).replace(/"(\d+)":/g, "'$1':"));
   }
 });
